@@ -1,0 +1,208 @@
+int piston1=1;
+int piston2=2;
+int piston3=3;
+int piston4=4;
+int piston5=5;
+
+
+int Shirt=8; // Shirt Signal Input
+char val = 1;
+
+int Pant = 9; // Pant Signal Input
+char val2 = 1;
+
+int OutputSingal = 0;
+
+// Motor 1 Pin
+int In1 = 10;
+int In2 = 11;
+
+// Motor 2 Pin
+int In3 = 12;
+int In4 = 13;
+
+int EnA = 6;
+int EnB = 7;
+
+
+void setup()
+{
+
+
+  pinMode(EnA, OUTPUT);
+  pinMode(EnB, OUTPUT);
+  
+  pinMode(In1,OUTPUT);
+  pinMode(In2,OUTPUT);
+  pinMode(In3,OUTPUT);
+  pinMode(In4,OUTPUT);
+
+
+analogWrite(EnA, 230);
+analogWrite(EnB, 230);
+   
+   pinMode(8,INPUT_PULLUP);
+   pinMode(9,INPUT_PULLUP);
+   
+   pinMode(0,OUTPUT);
+   pinMode(1,OUTPUT);
+   pinMode(2,OUTPUT);
+   pinMode(3,OUTPUT);
+   pinMode(4,OUTPUT);
+   pinMode(5,OUTPUT);
+   
+   //Piston Relay = OFF (0V)
+   digitalWrite(1,HIGH);
+   digitalWrite(2,HIGH);
+   digitalWrite(3,HIGH);
+   digitalWrite(4,HIGH);
+   digitalWrite(5,HIGH);
+
+//All Motor Outputs = OFF (0V)
+  digitalWrite(In1,HIGH);
+  digitalWrite(In2,HIGH);
+  digitalWrite(In3,HIGH);
+  digitalWrite(In4,HIGH);
+   
+}
+
+void loop() 
+{
+ int val;
+ val = digitalRead(8);
+ if(val==0)
+ {
+   
+//Motor 1 & 2 Forward
+  
+  digitalWrite(In1,HIGH);
+  digitalWrite(In2, LOW);
+ 
+  digitalWrite(In3,LOW);
+  digitalWrite(In4, HIGH);
+  delay(35000);
+  
+  //Motor 1 & 2 Reverse
+  digitalWrite(In1,LOW);
+  digitalWrite(In2, HIGH);
+  digitalWrite(In3,HIGH);
+  digitalWrite(In4, LOW);
+  delay(35000);
+  
+ //Motor 1 & 2 Off
+  digitalWrite(In1,HIGH);
+  digitalWrite(In2,HIGH);
+  digitalWrite(In3,HIGH);
+  digitalWrite(In4,HIGH);
+  
+  
+  delay(3000);
+ 
+  digitalWrite(1,LOW); // On Piston1 
+  delay(2000);
+  digitalWrite(1,HIGH);
+  delay(1500);
+
+
+  digitalWrite(2,LOW);
+  delay(2000);
+  digitalWrite(2,HIGH);
+  delay(1500);
+  
+
+  digitalWrite(3,LOW);
+  delay(2000);
+  digitalWrite(3,HIGH);
+  delay(1500);
+  
+
+  digitalWrite(4,LOW);
+  delay(2000);
+  digitalWrite(4,HIGH);  
+  delay(1500);
+
+  digitalWrite(5,LOW);
+  delay(2000);
+  digitalWrite(5,HIGH);
+
+  delay(1000);
+  digitalWrite(0,LOW);
+  delay(2000);
+  digitalWrite(0,HIGH);
+ }
+ else
+ {
+   digitalWrite(In1,HIGH);
+  digitalWrite(In2, HIGH);
+  digitalWrite(In3,HIGH);
+  digitalWrite(In4,HIGH);
+ }
+
+ 
+ int val2;
+ val2 = digitalRead(9);
+ if(val2==0)
+ {
+
+
+
+  digitalWrite(In1,HIGH);
+  digitalWrite(In2, LOW);
+  digitalWrite(In3,HIGH);
+  digitalWrite(In4, LOW);
+  delay(5000);
+  
+  digitalWrite(In1,LOW);
+  digitalWrite(In2, HIGH);
+  digitalWrite(In3,LOW);
+  digitalWrite(In4, HIGH);
+  delay(5000);
+
+  digitalWrite(In1,HIGH);
+  digitalWrite(In2, HIGH);
+  digitalWrite(In3,HIGH);
+  digitalWrite(In4,HIGH);
+  
+  delay(3000);
+
+
+  digitalWrite(2,LOW);
+  delay(2000);
+  digitalWrite(2,HIGH);
+  delay(1500);
+  
+
+  digitalWrite(3,LOW);
+  delay(2000);
+  digitalWrite(3,HIGH);
+  delay(1500);
+
+  digitalWrite(4,LOW);
+  delay(2000);
+  digitalWrite(4,HIGH);  
+  delay(1500);
+  digitalWrite(0,HIGH);
+  delay(2000);
+  digitalWrite(0,LOW);
+  
+  digitalWrite(5,LOW);
+  delay(2000);
+  digitalWrite(5,HIGH);
+
+  delay(1000);
+  digitalWrite(0,LOW);
+  delay(2000);
+  digitalWrite(0,HIGH);
+  
+ }
+ else
+ {
+  digitalWrite(In1,HIGH);
+  digitalWrite(In2, HIGH);
+  digitalWrite(In3,HIGH);
+  digitalWrite(In4,HIGH);
+ }
+
+
+  delay(100);
+}
